@@ -5,3 +5,9 @@ The aim of the project is to create a model which predicts the medical cost that
 The source of the dataset used in this analysis is Kaggle (https://www.kaggle.com/mirichoi0218/insurance).
 
 The Exploratory Data Analysis of the dataset and the results/accuracy of the model are provided in the jupyter notebook file.
+
+The outcome of the project was a web application where the data can be entered and a prediction of the medical cost is displayed.
+
+The screenshot the web application is attached below:
+
+
