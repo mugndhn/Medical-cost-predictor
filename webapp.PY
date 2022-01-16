@@ -27,16 +27,16 @@ def predict():
 	sex_encoder = joblib.load("sex_encoder.sav")
 	smoker_encoder = joblib.load("smoker_encoder.sav")
 	region_encoder = joblib.load("region_encoder.sav")
-	regression = joblib.load("regression.sav")
+	regression = joblib.load("regression2.sav")
 	predict_decoder = joblib.load("predict_decoder.sav")
 
 	sex_e = sex_encoder.transform(np.array(sex).reshape(1,-1))
 	smoker_e = smoker_encoder.transform(np.array(smoker).reshape(1,-1))
 	region_e = region_encoder.transform(np.array(region).reshape(1,-1))
 
-	predict = regression.predict(np.array([age,sex_e,bmi,child,smoker_e,region_e]).reshape(1,-1))
-	predict1 = predict_decoder.inverse_transform(predict).round(2).tolist()
-	return render_template('result.html', predict=predict1[0][0])
+	predict = regression.predict(np.array([age,sex_e,bmi,child,smoker_e,region_e]).reshape(1,-1)).round(2)
+	predict = predict.tolist()
+	return render_template('result.html', predict=predict[0])
 
 if __name__ == "__main__":
 	app.run(debug=True)
